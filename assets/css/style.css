@@ -1,0 +1,33 @@
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+body{
+   padding: 10px;
+}
+.fightarea{
+   display: flex;
+   gap: 20px;
+}
+#char,
+#monster{
+   flex: 1;
+}
+.lifbar{
+   height: 10px;
+   border: 1px solid #333;
+   border-radius: 5px;
+}
+.lifbar .bar{
+   height: 100%;
+   background-color: red;
+   border-radius: 5px;
+}
+
+.log{
+   border: 1px dotted #999;
+   height: 200px;
+   overflow-y: scroll;
+   margin-top: 1rem;
+}

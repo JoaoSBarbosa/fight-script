@@ -1,0 +1,17 @@
+# Projeto - Jogo de Luta 🤼‍♂️
+
+#### Um projeto de jogo de luta livre feito em linguagem JavaScript. 
+
+- Este projeto faz parte do curso JS no site B7WEB.
+
+- Estas são as pesquisas e treinamentos para usar bem as classes de Javascript
+
+Estudos alcançados:
+
+- HTML/CSS
+  - display-flex
+  - overflow
+  - responsividade
+- JavaScript
+  - classes
+
