@@ -38,4 +38,23 @@ class Character {
    }
  }
  
- 
+// --- Classes do Monstro pequeno ---- 
+class LittleMonster extends Character{
+   constructor(name){
+      super('Necromorfos');
+      this.life = 40;
+      this.attack = 4;
+      this.defense = 4;
+      this.maxLife = this.life;
+   }
+}
+// --- Classes do Monstro grande ---- 
+class BigMonster extends Character{
+   constructor(name){
+      super('Omega');
+      this.life = 120;
+      this.attack = 17;
+      this.defense = 6;
+      this.maxLife = this.life;
+   }
+}
