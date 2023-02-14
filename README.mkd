@@ -1,4 +1,4 @@
-# Projeto - Jogo de Luta 🤼‍♂️
+# Projeto - Jogo de Luta 🤼‍♂️🕹️
 
 #### Um projeto de jogo de luta livre feito em linguagem JavaScript. 
 
@@ -13,5 +13,8 @@ Estudos alcançados:
   - overflow
   - responsividade
 - JavaScript
-  - classes
+  - Classes
+  - POO - Encapsulamento
+  - POO - Herança
+  - POO - Construtor
 
