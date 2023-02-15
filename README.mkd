@@ -14,7 +14,10 @@ Estudos alcançados:
   - responsividade
 - JavaScript
   - Classes
+  - Arrow function
+  - Eventos
   - POO - Encapsulamento
   - POO - Herança
   - POO - Construtor
+  - POO - Métodos
 

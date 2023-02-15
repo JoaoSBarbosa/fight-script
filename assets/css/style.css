@@ -73,7 +73,16 @@ h1 {
   background-color: red;
   border-radius: 5px;
 }
-
+.name{
+   display: flex;
+   margin: 1.5rem 0;
+   height: 50px;
+}
+.character{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
 .log {
   border: 1px dotted #999;
   height: 200px;
