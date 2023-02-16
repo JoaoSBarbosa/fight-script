@@ -60,11 +60,12 @@ class BigMonster extends Character {
 }
 
 class Stage {
-  constructor(fighter1, fighter2, fighter1Element, fighter2Element) {
+  constructor(fighter1, fighter2, fighter1Element, fighter2Element, logObject) {
     this.fighter1 = fighter1;
     this.fighter2 = fighter2;
     this.fighter1Element = fighter1Element;
     this.fighter2Element = fighter2Element;
+    this.logObject = logObject;
   }
 
   start() {
@@ -83,42 +84,63 @@ class Stage {
   }
   update() {
     // Fight1
-    this.fighter1Element.querySelector(
-      ".name"
-    ).innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(1)} HP`;
+    this.fighter1Element.querySelector(".name").innerHTML = `${
+      this.fighter1.name
+    } - ${this.fighter1.life.toFixed(1)} HP`;
     let f1Pct = (this.fighter1.life / this.fighter1.maxLife) * 100;
     this.fighter1Element.querySelector(".bar").style.width = `${f1Pct}%`;
     // Fight2
-    this.fighter2Element.querySelector(
-      ".name"
-    ).innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(1)} HP`;
+    this.fighter2Element.querySelector(".name").innerHTML = `${
+      this.fighter2.name
+    } - ${this.fighter2.life.toFixed(1)} HP`;
     let f2Pct = (this.fighter2.life / this.fighter2.maxLife) * 100;
     this.fighter2Element.querySelector(".bar").style.width = `${f2Pct}%`;
   }
 
   doAttack(attacking, attacked) {
-    
-    if(attacking.life <=0 || attacked.life <= 0){
-      console.log('Já está morto');
+    if (attacking.life <= 0 || attacked.life <= 0) {
+      this.logObject.addMessage(`Já está morto`);
       return;
     }
     // aplicando fator de buffer em ataque e defesa
-    let attackFactor = (Math.random()*2).toFixed(2);
+    let attackFactor = (Math.random() * 2).toFixed(2);
     let actualAttack = attacking.attack * attackFactor;
-
-    let defenseFactor = (Math.random()*2).toFixed(2);
+    
+    let defenseFactor = (Math.random() * 2).toFixed(2);
     let actualDefense = attacked.defense * defenseFactor;
-
-    if(actualAttack > actualDefense){
+    let borderReplace = document.querySelector('.log');
+    if (actualAttack > actualDefense) {
       attacked.life -= actualAttack;
-      console.log(`${attacking.name} causou ${actualAttack.toFixed(2)} de dano`)
 
-    }else{
-      console.log(`${attacked.name} conseguiu defender...`)
+      this.logObject.addMessage(`${attacking.name} causou ${actualAttack.toFixed(2)} de dano em ${attacked.name}!`);
+      borderReplace.classList.remove("green")
+      borderReplace.classList.add('red');
+    } else {
+      this.logObject.addMessage(`${attacked.name} conseguiu defender do ataque de ${attacking.name}!`);
+      borderReplace.classList.remove("red")
+      borderReplace.classList.add('green');
+
     }
 
-   
-
     this.update();
+  }
+}
+
+class Log {
+
+  list = [];
+  constructor(listEl){
+    this.listEl = listEl;
+  }
+  addMessage(msg) {
+    this.list.push(msg);
+    this.render();
+  }
+  render(){
+    this.listEl.innerHTML = '';
+    
+    for(let i in this.list){
+      this.listEl.innerHTML += `<li class="li-js">${this.list[i]}</li><br/>`
+    }
   }
 }
