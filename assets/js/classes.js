@@ -85,19 +85,40 @@ class Stage {
     // Fight1
     this.fighter1Element.querySelector(
       ".name"
-    ).innerHTML = `${this.fighter1.name} - ${this.fighter1.life} HP`;
+    ).innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(1)} HP`;
     let f1Pct = (this.fighter1.life / this.fighter1.maxLife) * 100;
     this.fighter1Element.querySelector(".bar").style.width = `${f1Pct}%`;
     // Fight2
     this.fighter2Element.querySelector(
       ".name"
-    ).innerHTML = `${this.fighter2.name} - ${this.fighter2.life} HP`;
+    ).innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(1)} HP`;
     let f2Pct = (this.fighter2.life / this.fighter2.maxLife) * 100;
     this.fighter2Element.querySelector(".bar").style.width = `${f2Pct}%`;
   }
 
   doAttack(attacking, attacked) {
-    console.log(`${attacking.name} está atacando ${attacked.name}`);
+    
+    if(attacking.life <=0 || attacked.life <= 0){
+      console.log('Já está morto');
+      return;
+    }
+    // aplicando fator de buffer em ataque e defesa
+    let attackFactor = (Math.random()*2).toFixed(2);
+    let actualAttack = attacking.attack * attackFactor;
+
+    let defenseFactor = (Math.random()*2).toFixed(2);
+    let actualDefense = attacked.defense * defenseFactor;
+
+    if(actualAttack > actualDefense){
+      attacked.life -= actualAttack;
+      console.log(`${attacking.name} causou ${actualAttack.toFixed(2)} de dano`)
+
+    }else{
+      console.log(`${attacked.name} conseguiu defender...`)
+    }
+
+   
+
     this.update();
   }
 }
