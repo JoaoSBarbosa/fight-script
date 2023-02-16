@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-br">
+<html lang="pt-br">
 
 <head>
    <meta charset="UTF-8">
@@ -15,19 +15,21 @@
 
 <body>
    <header>
-      <div class="logo">
-         <a href="">
-            <img src="assets/img/necromante.png" alt="">
-         </a>
+      <div class="header-flex">
+         <div class="logo">
+            <a href="index.html">
+               <img src="assets/img/necromante.png" alt="">
+            </a>
 
-      </div>
-      <h1>Silvalitz Fight Script</h1>
-      <div class="icones">
-         <ul>
-            <li><a href=""><i class="fa-brands fa-github"></i></a></li>
-            <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+         </div>
+         <h1>Silvalitz Fight Script</h1>
+         <div class="icones">
+            <ul>
+               <li><a href="https://github.com/JoaoSBarbosa" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+               <li><a href="https://www.linkedin.com/in/joao-da-silva-barbosa/" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></li>
 
-         </ul>
+            </ul>
+         </div>
       </div>
    </header>
 
@@ -36,14 +38,18 @@
       <div id="char" class="character">
 
          <div class="lifbar">
-            <div class="bar" style="width: 10%;"></div>
+            <div class="bar"></div>
          </div>
 
          <strong class="name">--</strong>
-         <div>
-            <button class="attackButton">Atacar</button>
+         <div class="card-icon">
+            <div class="imagem">
+               <img src="assets/img/espadachim.png" alt="">
+            </div>
+            <div>
+               <button class="attackButton">Atacar</button>
+            </div>
          </div>
-
       </div>
 
       <div id="monster" class="character">
@@ -53,6 +59,9 @@
          </div>
 
          <strong class="name">--</strong>
+         <div class="imagem">
+            <img src="assets/img/bruxo (1).png" alt="">
+         </div>
          <div>
             <button class="attackButton">Atacar</button>
          </div>
@@ -64,7 +73,13 @@
    <ul class="log">
 
    </ul>
+   <section class="footer-section">
 
+      <footer>
+         <p>Desenvolvido por <a href="https://www.linkedin.com/in/joao-da-silva-barbosa/" target="_blank" title="Linkedin">João Barbosa</a></p>
+         <p>Créditos: Curso <a href="https://b7web.com.br/fullstack/" target="_blank" title="Site do curso">B7WEB</a></p>
+      </footer>
+   </section>
    <script src="assets/js/classes.js"></script>
    <script src="assets/js/script.js"></script>
 </body>

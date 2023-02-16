@@ -98,8 +98,11 @@ class Stage {
   }
 
   doAttack(attacking, attacked) {
-    if (attacking.life <= 0 || attacked.life <= 0) {
-      this.logObject.addMessage(`Já está morto`);
+    if (attacking.life <= 0 ) {
+      this.logObject.addMessage(`${attacking.name} está morto, não pode atacar!`);
+      return;
+    }else if(attacked.life <= 0){
+      this.logObject.addMessage(`${attacked.name} já morreu!`);
       return;
     }
     // aplicando fator de buffer em ataque e defesa
